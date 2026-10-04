@@ -1,0 +1,68 @@
+{
+  "schema": "parameter-golf/submission",
+  "track": "local_micro_benchmark",
+  "official_leaderboard": false,
+  "note": "本文件记录的是 **CPU 微型台架**上的实测结果，不是官方 8xH100 / FineWeb 评测的成绩。语料、模型规模、硬件均与官方不同，BPB 数值不可与榜单互比。",
+  "author": "十三",
+  "task": "C2G",
+  "variant": "tokenizer_ablation_sp1024_vs_sp4096",
+  "config": {
+    "dim": 128,
+    "layers": 4,
+    "heads": 4,
+    "kv_heads": 2,
+    "mlp_mult": 2,
+    "seq_len": 256,
+    "batch_seqs": 32,
+    "iters": 800,
+    "optimizer": "Muon(2D) + AdamW(rest)",
+    "tie_embeddings": true,
+    "hardware": "CPU (no CUDA)"
+  },
+  "seeds": [
+    1337,
+    2025,
+    42
+  ],
+  "results": {
+    "sp1024": {
+      "val_bpb_mean": 0.77705,
+      "val_bpb_std": 0.00089,
+      "val_bpb_values": [
+        0.77821,
+        0.77605,
+        0.77689
+      ],
+      "val_loss_mean": 1.27519,
+      "tokens_per_byte": 0.42238,
+      "n_params": 590980
+    },
+    "sp4096": {
+      "val_bpb_mean": 0.78732,
+      "val_bpb_std": 0.01207,
+      "val_bpb_values": [
+        0.77587,
+        0.804,
+        0.78208
+      ],
+      "val_loss_mean": 1.71725,
+      "tokens_per_byte": 0.31779,
+      "n_params": 984196
+    }
+  },
+  "verdict": {
+    "criterion": "BPB₄₀₉₆ < BPB₁₀₂₄  ⟺  L₄₀₉₆/L₁₀₂₄ < tpb₁₀₂₄ / tpb₄₀₉₆",
+    "loss_ratio_threshold_measured": 1.3291,
+    "loss_ratio_mean": 1.3467,
+    "bpb_delta_mean": 0.01027,
+    "bpb_delta_std": 0.01288,
+    "all_seeds_consistent": false,
+    "prediction_holds": false
+  },
+  "not_measured": [
+    "official leaderboard BPB (no 8xH100)",
+    "16MB artifact size / int8+zlib packing",
+    "SP8192 variant",
+    "wallclock-constrained step count"
+  ]
+}
