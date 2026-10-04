@@ -1,0 +1,49 @@
+{
+  "corpus": {
+    "full_bytes": 3106858,
+    "train_bytes": 2844106,
+    "val_bytes": 262744,
+    "val_ratio": 0.1,
+    "seed": 1337
+  },
+  "tokenizers": {
+    "1024": {
+      "model_file": "data\\tokenizers\\local_bpe_1024.model",
+      "sp_vocab_size": 1024,
+      "train_tokens": 1097021,
+      "val_tokens": 97312,
+      "tokens_per_byte_val": 0.37036811497122674,
+      "byte_selfcheck": {
+        "tokens": 97312,
+        "counted_bytes": 231896,
+        "decoded_bytes": 231917,
+        "raw_text_bytes": 262744,
+        "boundary_tokens": 4,
+        "boundary_piece_bytes": 20,
+        "diff_raw": -21,
+        "residual_explained": -1,
+        "tokens_per_byte": 0.41963638872598064,
+        "ok": true
+      }
+    },
+    "4096": {
+      "model_file": "data\\tokenizers\\local_bpe_4096.model",
+      "sp_vocab_size": 4096,
+      "train_tokens": 861945,
+      "val_tokens": 74037,
+      "tokens_per_byte_val": 0.2817837895441951,
+      "byte_selfcheck": {
+        "tokens": 74037,
+        "counted_bytes": 231896,
+        "decoded_bytes": 231917,
+        "raw_text_bytes": 262744,
+        "boundary_tokens": 4,
+        "boundary_piece_bytes": 20,
+        "diff_raw": -21,
+        "residual_explained": -1,
+        "tokens_per_byte": 0.3192681201918101,
+        "ok": true
+      }
+    }
+  }
+}
