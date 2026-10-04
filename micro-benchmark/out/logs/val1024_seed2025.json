@@ -1,0 +1,13 @@
+{
+  "seed": 2025,
+  "vocab": 1024,
+  "n_params": 590980,
+  "tokens_per_step": 8192,
+  "steps": 800,
+  "train_seconds": 238.2,
+  "ms_per_step": 297.78,
+  "final_train_loss": 1.4618,
+  "val_loss_nats": 1.27355,
+  "val_bpb": 0.77605,
+  "tokens_per_byte": 0.42238
+}
