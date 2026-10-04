@@ -1,0 +1,100 @@
+{
+  "summary": {
+    "config": {
+      "dim": 128,
+      "layers": 4,
+      "heads": 4,
+      "kv_heads": 2,
+      "mlp_mult": 2,
+      "seq_len": 256,
+      "qk_gain": 1.5,
+      "softcap": 30.0,
+      "tie_embeddings": true,
+      "batch_seqs": 32,
+      "iters": 150,
+      "warmup": 20,
+      "warmdown": 30,
+      "muon_lr": 0.02,
+      "muon_momentum": 0.95,
+      "adam_lr": 0.003,
+      "eval_seqs": 64
+    },
+    "seeds": [
+      1337
+    ],
+    "iters": 150,
+    "by_vocab": {
+      "1024": {
+        "n": 1,
+        "val_bpb_mean": 1.59372,
+        "val_bpb_std": 0.0,
+        "val_bpb_values": [
+          1.59372
+        ],
+        "val_loss_mean": 2.6154,
+        "tokens_per_byte": 0.42238,
+        "n_params": 590980,
+        "ms_per_step": 276.14
+      },
+      "4096": {
+        "n": 1,
+        "val_bpb_mean": 1.58294,
+        "val_bpb_std": 0.0,
+        "val_bpb_values": [
+          1.58294
+        ],
+        "val_loss_mean": 3.45263,
+        "tokens_per_byte": 0.31779,
+        "n_params": 984196,
+        "ms_per_step": 457.52
+      }
+    },
+    "paired": [
+      {
+        "seed": 1337,
+        "bpb_1024": 1.59372,
+        "bpb_4096": 1.58294,
+        "delta": -0.01078,
+        "loss_ratio": 1.3201
+      }
+    ],
+    "verdict": {
+      "hypothesis": "BPB₄₀₉₆ < BPB₁₀₂₄  ⟺  L₄₀₉₆/L₁₀₂₄ < 1.3142",
+      "loss_ratio_threshold": 1.3141,
+      "loss_ratio_mean": 1.3201,
+      "loss_ratio_max": 1.3201,
+      "bpb_delta_mean": -0.01078,
+      "bpb_delta_std": 0.0,
+      "all_seeds_consistent": true,
+      "prediction_holds": false
+    }
+  },
+  "runs": [
+    {
+      "seed": 1337,
+      "vocab": 1024,
+      "n_params": 590980,
+      "tokens_per_step": 8192,
+      "steps": 150,
+      "train_seconds": 41.4,
+      "ms_per_step": 276.14,
+      "final_train_loss": 2.56831,
+      "val_loss_nats": 2.6154,
+      "val_bpb": 1.59372,
+      "tokens_per_byte": 0.42238
+    },
+    {
+      "seed": 1337,
+      "vocab": 4096,
+      "n_params": 984196,
+      "tokens_per_step": 8192,
+      "steps": 150,
+      "train_seconds": 68.6,
+      "ms_per_step": 457.52,
+      "final_train_loss": 3.10965,
+      "val_loss_nats": 3.45263,
+      "val_bpb": 1.58294,
+      "tokens_per_byte": 0.31779
+    }
+  ]
+}
